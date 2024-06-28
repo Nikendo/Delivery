@@ -6,24 +6,40 @@
 //
 
 import UIKit
+import Combine
 
 
 public class AppCoordinator: Coordinator {
     public var navigationController: UINavigationController
     
-    private var authorized: Bool
+    private let userSessionManager: UserSessionManagerProtocol
+    private var cancellables = Set<AnyCancellable>()
 
-    public init(navigationController: UINavigationController, authorized: Bool) {
+    public init(navigationController: UINavigationController, userSessionManager: UserSessionManagerProtocol) {
         self.navigationController = navigationController
-        self.authorized = authorized
+        self.userSessionManager = userSessionManager
+        bind()
     }
 
     public func start() {
-        guard authorized else {
+        guard userSessionManager.isAuthorized.value else {
             showLogin()
             return
         }
         showMainTabBar()
+    }
+
+    private func bind() {
+        userSessionManager.isAuthorized.$value
+            .receive(on: RunLoop.main)
+            .sink { [weak self] isAuthorized in
+                guard isAuthorized else {
+                    self?.showLogin()
+                    return
+                }
+                self?.showMainTabBar()
+            }
+            .store(in: &cancellables)
     }
 
     private func showMainTabBar() {
@@ -32,7 +48,7 @@ public class AppCoordinator: Coordinator {
     }
 
     private func showLogin() {
-        let welcomeCoordinator = WelcomeCoordinator(navigationController: navigationController)
+        let welcomeCoordinator = WelcomeCoordinator(navigationController: navigationController, userSessionManager: userSessionManager)
         welcomeCoordinator.start()
     }
 }

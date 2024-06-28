@@ -37,6 +37,6 @@ final class MainTabBarCoordinator: Coordinator {
         let tabBarController = UITabBarController()
         tabBarController.tabBar.tintColor = UIColor(resource: .A_259_FF)
         tabBarController.setViewControllers(tabControllers, animated: true)
-        navigationController.setViewControllers([tabBarController], animated: true)
+        navigationController.setViewControllers([tabBarController], animated: false)
     }
 }

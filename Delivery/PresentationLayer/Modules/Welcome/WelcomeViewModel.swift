@@ -30,14 +30,22 @@ public class WelcomeViewModel: WelcomeViewModelProtocol {
     public private(set) weak var coordinator: WelcomeCoordinator?
 
     private var cancellables = Set<AnyCancellable>()
+    private let loginUseCase: LoginUseCaseProtocol
 
-    init(coordinator: WelcomeCoordinator) {
+    init(coordinator: WelcomeCoordinator, loginUseCase: LoginUseCaseProtocol) {
         self.coordinator = coordinator
+        self.loginUseCase = loginUseCase
         setupBindings()
     }
 
     public func login() {
-
+        Task {
+            do {
+                try await loginUseCase.execute(email: email, password: password)
+            } catch {
+                self.error.value = error
+            }
+        }
     }
     
     public func openRegistration() {

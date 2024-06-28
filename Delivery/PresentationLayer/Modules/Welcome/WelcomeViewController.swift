@@ -208,6 +208,7 @@ private extension WelcomeViewController {
 
         // Bind viewModel's error to the errorLabel's text property
         viewModel.error.$value
+            .receive(on: RunLoop.main)
             .map(\.?.localizedDescription)
             .assign(to: \.text, on: errorLabel)
             .store(in: &cancellables)

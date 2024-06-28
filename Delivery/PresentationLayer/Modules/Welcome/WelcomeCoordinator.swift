@@ -11,12 +11,16 @@ import UIKit
 public final class WelcomeCoordinator: Coordinator {
     public var navigationController: UINavigationController
 
-    init(navigationController: UINavigationController) {
+    private let userSessionManager: UserSessionManagerProtocol
+
+    init(navigationController: UINavigationController, userSessionManager: UserSessionManagerProtocol) {
         self.navigationController = navigationController
+        self.userSessionManager = userSessionManager
     }
 
     public func start() {
-        let viewModel: WelcomeViewModelProtocol = WelcomeViewModel(coordinator: self)
+        let loginUseCase: LoginUseCaseProtocol = LoginUseCase(authService: FirebaseAuthService(), userSessionManager: userSessionManager)
+        let viewModel: WelcomeViewModelProtocol = WelcomeViewModel(coordinator: self, loginUseCase: loginUseCase)
         let viewController = WelcomeViewController(viewModel: viewModel)
         navigationController.setViewControllers([viewController], animated: true)
     }
