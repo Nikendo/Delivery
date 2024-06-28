@@ -23,6 +23,9 @@
 		731020182C2EDC080001BA5D /* CartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731020172C2EDC080001BA5D /* CartCoordinator.swift */; };
 		7310201A2C2EDC3B0001BA5D /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731020192C2EDC3B0001BA5D /* ProfileCoordinator.swift */; };
 		7310201C2C2EE83C0001BA5D /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310201B2C2EE83C0001BA5D /* WelcomeCoordinator.swift */; };
+		7310201F2C2EF04E0001BA5D /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7310201E2C2EF04E0001BA5D /* WelcomeViewModel.swift */; };
+		731020212C2F085E0001BA5D /* UITextField+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731020202C2F085E0001BA5D /* UITextField+Publisher.swift */; };
+		731020232C2F1AD60001BA5D /* ObservableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731020222C2F1AD60001BA5D /* ObservableValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		731020172C2EDC080001BA5D /* CartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCoordinator.swift; sourceTree = "<group>"; };
 		731020192C2EDC3B0001BA5D /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		7310201B2C2EE83C0001BA5D /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		7310201E2C2EF04E0001BA5D /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		731020202C2F085E0001BA5D /* UITextField+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Publisher.swift"; sourceTree = "<group>"; };
+		731020222C2F1AD60001BA5D /* ObservableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,7 @@
 		73101FFD2C2ECEC70001BA5D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				731020222C2F1AD60001BA5D /* ObservableValue.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -209,6 +216,7 @@
 		73101FFE2C2ECED00001BA5D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				731020202C2F085E0001BA5D /* UITextField+Publisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 			children = (
 				73101FEC2C2DC2230001BA5D /* WelcomeViewController.swift */,
 				7310201B2C2EE83C0001BA5D /* WelcomeCoordinator.swift */,
+				7310201E2C2EF04E0001BA5D /* WelcomeViewModel.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -336,14 +345,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7310200A2C2ED9420001BA5D /* CategoriesCoordinator.swift in Sources */,
+				7310201F2C2EF04E0001BA5D /* WelcomeViewModel.swift in Sources */,
 				731020012C2ECF3F0001BA5D /* AppCoordinator.swift in Sources */,
 				731020122C2EDB1B0001BA5D /* CartViewController.swift in Sources */,
 				7310201C2C2EE83C0001BA5D /* WelcomeCoordinator.swift in Sources */,
 				7310200F2C2EDA270001BA5D /* CategoriesViewController.swift in Sources */,
+				731020212C2F085E0001BA5D /* UITextField+Publisher.swift in Sources */,
 				73101FED2C2DC2230001BA5D /* WelcomeViewController.swift in Sources */,
 				731020082C2ED7BA0001BA5D /* MainTabBarCoordinator.swift in Sources */,
 				731020152C2EDB3E0001BA5D /* ProfileViewController.swift in Sources */,
 				731020052C2ED5760001BA5D /* TabBarItems.swift in Sources */,
+				731020232C2F1AD60001BA5D /* ObservableValue.swift in Sources */,
 				7310201A2C2EDC3B0001BA5D /* ProfileCoordinator.swift in Sources */,
 				731020032C2ECFAC0001BA5D /* Coordinator.swift in Sources */,
 				73101FD92C2DC0DB0001BA5D /* AppDelegate.swift in Sources */,

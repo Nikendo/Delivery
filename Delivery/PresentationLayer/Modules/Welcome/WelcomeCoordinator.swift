@@ -16,7 +16,8 @@ public final class WelcomeCoordinator: Coordinator {
     }
 
     public func start() {
-        let viewController = WelcomeViewController()
+        let viewModel: WelcomeViewModelProtocol = WelcomeViewModel(coordinator: self)
+        let viewController = WelcomeViewController(viewModel: viewModel)
         navigationController.setViewControllers([viewController], animated: true)
     }
 }
