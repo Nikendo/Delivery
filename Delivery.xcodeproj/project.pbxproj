@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730FA1F82C39F4C100F94C6F /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730FA1F72C39F4C100F94C6F /* UIViewController+Keyboard.swift */; };
 		73101FD92C2DC0DB0001BA5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73101FD82C2DC0DB0001BA5D /* AppDelegate.swift */; };
 		73101FDB2C2DC0DB0001BA5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73101FDA2C2DC0DB0001BA5D /* SceneDelegate.swift */; };
 		73101FE22C2DC0DD0001BA5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73101FE12C2DC0DD0001BA5D /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		730FA1F72C39F4C100F94C6F /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		73101FD52C2DC0DB0001BA5D /* Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73101FD82C2DC0DB0001BA5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73101FDA2C2DC0DB0001BA5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				731020202C2F085E0001BA5D /* UITextField+Publisher.swift */,
+				730FA1F72C39F4C100F94C6F /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				7310201F2C2EF04E0001BA5D /* WelcomeViewModel.swift in Sources */,
 				731020012C2ECF3F0001BA5D /* AppCoordinator.swift in Sources */,
 				731020622C2F70700001BA5D /* UserSessionManagerProtocol.swift in Sources */,
+				730FA1F82C39F4C100F94C6F /* UIViewController+Keyboard.swift in Sources */,
 				7310204F2C2F67450001BA5D /* UserSessionManager.swift in Sources */,
 				7310205C2C2F70380001BA5D /* UserInfo.swift in Sources */,
 				731020122C2EDB1B0001BA5D /* CartViewController.swift in Sources */,

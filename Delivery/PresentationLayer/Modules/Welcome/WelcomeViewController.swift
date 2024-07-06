@@ -26,11 +26,12 @@ final public class WelcomeViewController: UIViewController, WelcomeViewControlle
         textField.borderStyle = .roundedRect
         textField.font = .systemFont(ofSize: 17)
         textField.placeholder = "Email"
-        textField.textColor = .darkText
         textField.tintColor = UIColor(resource: .A_259_FF)
         textField.keyboardType = .emailAddress
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
+        textField.returnKeyType = .next
+        textField.delegate = self
         return textField
     }()
 
@@ -40,11 +41,12 @@ final public class WelcomeViewController: UIViewController, WelcomeViewControlle
         textField.borderStyle = .roundedRect
         textField.font = .systemFont(ofSize: 17)
         textField.placeholder = "Password"
-        textField.textColor = .darkText
         textField.tintColor = UIColor(resource: .A_259_FF)
         textField.isSecureTextEntry = true
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
+        textField.returnKeyType = .done
+        textField.delegate = self
         return textField
     }()
 
@@ -61,7 +63,7 @@ final public class WelcomeViewController: UIViewController, WelcomeViewControlle
         let button = UIButton(configuration: UIButton.Configuration.filled())
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Login", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(UIColor(resource: .A_259_FF), for: .normal)
         button.tintColor = UIColor(resource: ._0_BCE_83)
         button.titleLabel?.font = .systemFont(ofSize: 17, weight: .bold)
         return button
@@ -123,6 +125,21 @@ final public class WelcomeViewController: UIViewController, WelcomeViewControlle
         setupViews()
         setupActions()
         setupBindings()
+        setupHideKeyboardOnTap()
+    }
+}
+
+extension WelcomeViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            passwordTextField.resignFirstResponder()
+            loginButtonTapped()
+        default: break
+        }
+        return true
     }
 }
 
@@ -167,8 +184,8 @@ private extension WelcomeViewController {
             signUpVStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalSpacing),
             signUpVStack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.bottomAnchor.constraint(equalTo: signUpVStack.topAnchor, constant: -48),
-            loginButton.topAnchor.constraint(greaterThanOrEqualTo: fieldsVStack.bottomAnchor, constant: -24),
+            loginButton.bottomAnchor.constraint(lessThanOrEqualTo: signUpVStack.topAnchor, constant: -24),
+            loginButton.topAnchor.constraint(equalTo: fieldsVStack.bottomAnchor, constant: 24),
             welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             welcomeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             welcomeLabel.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
