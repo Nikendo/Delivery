@@ -16,7 +16,7 @@ public final class ProfileCoordinator: Coordinator {
     }
 
     public func start() {
-        let viewController = CategoriesViewController()
+        let viewController = ProfileViewController()
         viewController.title = TabBarItems.profile.title
         navigationController.setViewControllers([viewController], animated: true)
     }

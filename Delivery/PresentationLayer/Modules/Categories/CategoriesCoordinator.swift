@@ -8,7 +8,7 @@
 import UIKit
 
 
-public final class CategoriesCoordinator: Coordinator {
+public final class CategoriesCoordinator: CategoriesCoordinatorProtocol {
     public var navigationController: UINavigationController
 
     public init(navigationController: UINavigationController) {
@@ -16,8 +16,17 @@ public final class CategoriesCoordinator: Coordinator {
     }
 
     public func start() {
-        let viewController = CategoriesViewController()
+        let getCategoriesUseCase = GetCategoriesUseCase(categoriesService: FirebaseCategoriesService())
+        let viewModel = CategoriesViewModel(coordinator: self, getCategoriesUseCase: getCategoriesUseCase)
+        let viewController = CategoriesViewController(viewModel: viewModel)
         viewController.title = TabBarItems.categories.title
         navigationController.setViewControllers([viewController], animated: true)
+    }
+
+    public func toCategoryScreen(category: Category) {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .systemBackground
+        viewController.title = category.name
+        navigationController.pushViewController(viewController, animated: true)
     }
 }
