@@ -57,6 +57,10 @@
 		732D730B2C33376100791A4B /* MockGetCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D730A2C33376100791A4B /* MockGetCategoriesUseCase.swift */; };
 		732D730D2C33581200791A4B /* MockCategoriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D730C2C33581200791A4B /* MockCategoriesCoordinator.swift */; };
 		732D730F2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D730E2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift */; };
+		738925DD2C4A79C700FC218A /* CategoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925DC2C4A79C700FC218A /* CategoryViewModelTests.swift */; };
+		738925DF2C4A93AB00FC218A /* MockProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925DE2C4A93AB00FC218A /* MockProducts.swift */; };
+		738925E12C4A9E2300FC218A /* ProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925E02C4A9E2300FC218A /* ProductTests.swift */; };
+		738925E32C4AA36700FC218A /* MockGetProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925E22C4AA36700FC218A /* MockGetProductsUseCase.swift */; };
 		738E88DD2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E88DC2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift */; };
 		738E88DF2C34252500AFB0DA /* FirebaseCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E88DE2C34252500AFB0DA /* FirebaseCategoriesService.swift */; };
 		738E88E12C34257D00AFB0DA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 738E88E02C34257D00AFB0DA /* FirebaseFirestore */; };
@@ -136,6 +140,10 @@
 		732D730A2C33376100791A4B /* MockGetCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetCategoriesUseCase.swift; sourceTree = "<group>"; };
 		732D730C2C33581200791A4B /* MockCategoriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesCoordinator.swift; sourceTree = "<group>"; };
 		732D730E2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		738925DC2C4A79C700FC218A /* CategoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelTests.swift; sourceTree = "<group>"; };
+		738925DE2C4A93AB00FC218A /* MockProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProducts.swift; sourceTree = "<group>"; };
+		738925E02C4A9E2300FC218A /* ProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTests.swift; sourceTree = "<group>"; };
+		738925E22C4AA36700FC218A /* MockGetProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetProductsUseCase.swift; sourceTree = "<group>"; };
 		738E88DC2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesServiceProtocol.swift; sourceTree = "<group>"; };
 		738E88DE2C34252500AFB0DA /* FirebaseCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCategoriesService.swift; sourceTree = "<group>"; };
 		738E88E22C344C7D00AFB0DA /* CategoriesViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerProtocol.swift; sourceTree = "<group>"; };
@@ -450,6 +458,8 @@
 				732D730A2C33376100791A4B /* MockGetCategoriesUseCase.swift */,
 				732D730C2C33581200791A4B /* MockCategoriesCoordinator.swift */,
 				738E88E42C34541000AFB0DA /* MockCategoriesViewModel.swift */,
+				738925DE2C4A93AB00FC218A /* MockProducts.swift */,
+				738925E22C4AA36700FC218A /* MockGetProductsUseCase.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -478,6 +488,8 @@
 				73CF402A2C32E3C800D8DEFF /* CategoriesViewControllerTests.swift */,
 				73CF402C2C32E87F00D8DEFF /* CategoriesTests.swift */,
 				732D72FA2C32EB8000791A4B /* CategoriesViewModelTests.swift */,
+				738925DC2C4A79C700FC218A /* CategoryViewModelTests.swift */,
+				738925E02C4A9E2300FC218A /* ProductTests.swift */,
 			);
 			path = CategoriesTests;
 			sourceTree = "<group>";
@@ -687,9 +699,13 @@
 				73CF402B2C32E3C800D8DEFF /* CategoriesViewControllerTests.swift in Sources */,
 				732D730D2C33581200791A4B /* MockCategoriesCoordinator.swift in Sources */,
 				73CF402D2C32E87F00D8DEFF /* CategoriesTests.swift in Sources */,
+				738925DD2C4A79C700FC218A /* CategoryViewModelTests.swift in Sources */,
+				738925E32C4AA36700FC218A /* MockGetProductsUseCase.swift in Sources */,
+				738925DF2C4A93AB00FC218A /* MockProducts.swift in Sources */,
 				732D72FE2C32ED0F00791A4B /* MockUserSessionManager.swift in Sources */,
 				738E88E52C34541000AFB0DA /* MockCategoriesViewModel.swift in Sources */,
 				732D730B2C33376100791A4B /* MockGetCategoriesUseCase.swift in Sources */,
+				738925E12C4A9E2300FC218A /* ProductTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
