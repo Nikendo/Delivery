@@ -20,6 +20,7 @@ final class CategoryViewModelTests: XCTestCase {
     // 6. add a product to favorites
     // 7. add a product to the cart
 
+    private var cancellables: Set<AnyCancellable>!
     private var getProductsUseCase: MockGetProductsUseCase!
     private var coordinator: MockCategoriesCoordinator!
     private var viewModel: CategoryViewModel!
@@ -27,12 +28,14 @@ final class CategoryViewModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        cancellables = []
         getProductsUseCase = MockGetProductsUseCase()
         coordinator = MockCategoriesCoordinator()
         viewModel = CategoryViewModel(coordinator: coordinator, getProductsUseCase: getProductsUseCase)
     }
 
     override func tearDown() {
+        cancellables = nil
         getProductsUseCase = nil
         coordinator = nil
         viewModel = nil
@@ -51,6 +54,7 @@ final class CategoryViewModelTests: XCTestCase {
                 XCTAssertEqual(fetchedProducts, products, "Fetched products are not equal to expected.")
                 expectation.fulfill()
             }
+            .store(in: &cancellables)
 
         // When
         viewModel.fetchProducts()
