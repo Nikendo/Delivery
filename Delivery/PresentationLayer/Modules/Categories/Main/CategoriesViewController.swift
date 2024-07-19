@@ -9,11 +9,11 @@ import UIKit
 import Combine
 
 
-enum Section {
-    case main
-}
-
 public class CategoriesViewController: UIViewController, CategoriesViewControllerProtocol {
+    private enum Section {
+        case main
+    }
+
     public var viewModel: CategoriesViewModelProtocol
     private let imageLoader: ImageLoaderProtocol = ImageLoader()
 

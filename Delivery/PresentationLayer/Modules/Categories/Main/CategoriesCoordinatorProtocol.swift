@@ -10,4 +10,5 @@ import UIKit
 
 public protocol CategoriesCoordinatorProtocol: Coordinator {
     func toCategoryScreen(category: Category)
+    func toProductScreen(product: Product)
 }
