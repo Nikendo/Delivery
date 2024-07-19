@@ -12,7 +12,7 @@ final class MockGetProductsUseCase: GetProductsUseCaseProtocol {
     var products: [Product] = []
     var errorToThrow: Error?
 
-    func execute() async throws -> [Category] {
+    func execute() async throws -> [Product] {
         try await Task.sleep(nanoseconds: 1_000_000)
         guard let errorToThrow else {
             return products
