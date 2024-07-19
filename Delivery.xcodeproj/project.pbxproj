@@ -61,6 +61,10 @@
 		738925DF2C4A93AB00FC218A /* MockProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925DE2C4A93AB00FC218A /* MockProducts.swift */; };
 		738925E12C4A9E2300FC218A /* ProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925E02C4A9E2300FC218A /* ProductTests.swift */; };
 		738925E32C4AA36700FC218A /* MockGetProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925E22C4AA36700FC218A /* MockGetProductsUseCase.swift */; };
+		738925E72C4AA87200FC218A /* GetProductsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925E62C4AA87200FC218A /* GetProductsUseCaseProtocol.swift */; };
+		738925E92C4AC24500FC218A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925E82C4AC24500FC218A /* Product.swift */; };
+		738925EB2C4AC5E900FC218A /* CategoryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925EA2C4AC5E900FC218A /* CategoryViewModelProtocol.swift */; };
+		738925ED2C4AC6AA00FC218A /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925EC2C4AC6AA00FC218A /* CategoryViewModel.swift */; };
 		738E88DD2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E88DC2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift */; };
 		738E88DF2C34252500AFB0DA /* FirebaseCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E88DE2C34252500AFB0DA /* FirebaseCategoriesService.swift */; };
 		738E88E12C34257D00AFB0DA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 738E88E02C34257D00AFB0DA /* FirebaseFirestore */; };
@@ -144,6 +148,10 @@
 		738925DE2C4A93AB00FC218A /* MockProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProducts.swift; sourceTree = "<group>"; };
 		738925E02C4A9E2300FC218A /* ProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTests.swift; sourceTree = "<group>"; };
 		738925E22C4AA36700FC218A /* MockGetProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetProductsUseCase.swift; sourceTree = "<group>"; };
+		738925E62C4AA87200FC218A /* GetProductsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsUseCaseProtocol.swift; sourceTree = "<group>"; };
+		738925E82C4AC24500FC218A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		738925EA2C4AC5E900FC218A /* CategoryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelProtocol.swift; sourceTree = "<group>"; };
+		738925EC2C4AC6AA00FC218A /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		738E88DC2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesServiceProtocol.swift; sourceTree = "<group>"; };
 		738E88DE2C34252500AFB0DA /* FirebaseCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCategoriesService.swift; sourceTree = "<group>"; };
 		738E88E22C344C7D00AFB0DA /* CategoriesViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerProtocol.swift; sourceTree = "<group>"; };
@@ -284,6 +292,7 @@
 			children = (
 				731020272C2F2ABF0001BA5D /* User.swift */,
 				732D72F82C32EA0600791A4B /* Category.swift */,
+				738925E82C4AC24500FC218A /* Product.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -349,13 +358,8 @@
 		7310200B2C2ED9D20001BA5D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				738E88E62C345D7E00AFB0DA /* Cells */,
-				738E88E22C344C7D00AFB0DA /* CategoriesViewControllerProtocol.swift */,
-				7310200E2C2EDA270001BA5D /* CategoriesViewController.swift */,
-				732D730E2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift */,
-				731020092C2ED9420001BA5D /* CategoriesCoordinator.swift */,
-				732D73012C33189D00791A4B /* CategoriesViewModelProtocol.swift */,
-				732D73032C33192900791A4B /* CategoriesViewModel.swift */,
+				738925E42C4AA69200FC218A /* Main */,
+				738925E52C4AA6B800FC218A /* Category */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -469,8 +473,32 @@
 			children = (
 				732D73062C3336CB00791A4B /* GetCategoriesUseCaseProtocol.swift */,
 				732D73082C33371400791A4B /* GetCategoriesUseCase.swift */,
+				738925E62C4AA87200FC218A /* GetProductsUseCaseProtocol.swift */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		738925E42C4AA69200FC218A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				738E88E62C345D7E00AFB0DA /* Cells */,
+				738E88E22C344C7D00AFB0DA /* CategoriesViewControllerProtocol.swift */,
+				7310200E2C2EDA270001BA5D /* CategoriesViewController.swift */,
+				732D730E2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift */,
+				731020092C2ED9420001BA5D /* CategoriesCoordinator.swift */,
+				732D73012C33189D00791A4B /* CategoriesViewModelProtocol.swift */,
+				732D73032C33192900791A4B /* CategoriesViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		738925E52C4AA6B800FC218A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				738925EA2C4AC5E900FC218A /* CategoryViewModelProtocol.swift */,
+				738925EC2C4AC6AA00FC218A /* CategoryViewModel.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		738E88E62C345D7E00AFB0DA /* Cells */ = {
@@ -638,10 +666,12 @@
 			files = (
 				7310200A2C2ED9420001BA5D /* CategoriesCoordinator.swift in Sources */,
 				7310201F2C2EF04E0001BA5D /* WelcomeViewModel.swift in Sources */,
+				738925EB2C4AC5E900FC218A /* CategoryViewModelProtocol.swift in Sources */,
 				731020012C2ECF3F0001BA5D /* AppCoordinator.swift in Sources */,
 				731020622C2F70700001BA5D /* UserSessionManagerProtocol.swift in Sources */,
 				730FA1F82C39F4C100F94C6F /* UIViewController+Keyboard.swift in Sources */,
 				738E88E82C345D9F00AFB0DA /* CategoryCollectionViewCell.swift in Sources */,
+				738925ED2C4AC6AA00FC218A /* CategoryViewModel.swift in Sources */,
 				732062332C396293000ECC93 /* SearchController.swift in Sources */,
 				7310204F2C2F67450001BA5D /* UserSessionManager.swift in Sources */,
 				7310205C2C2F70380001BA5D /* UserInfo.swift in Sources */,
@@ -652,8 +682,10 @@
 				731020122C2EDB1B0001BA5D /* CartViewController.swift in Sources */,
 				7310205F2C2F704E0001BA5D /* UserSession.swift in Sources */,
 				732D730F2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift in Sources */,
+				738925E72C4AA87200FC218A /* GetProductsUseCaseProtocol.swift in Sources */,
 				7310204B2C2F612B0001BA5D /* FirebaseAuthService.swift in Sources */,
 				7310201C2C2EE83C0001BA5D /* WelcomeCoordinator.swift in Sources */,
+				738925E92C4AC24500FC218A /* Product.swift in Sources */,
 				7310200F2C2EDA270001BA5D /* CategoriesViewController.swift in Sources */,
 				731020212C2F085E0001BA5D /* UITextField+Publisher.swift in Sources */,
 				73101FED2C2DC2230001BA5D /* WelcomeViewController.swift in Sources */,

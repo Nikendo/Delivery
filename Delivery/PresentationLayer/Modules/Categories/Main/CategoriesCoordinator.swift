@@ -29,4 +29,11 @@ public final class CategoriesCoordinator: CategoriesCoordinatorProtocol {
         viewController.title = category.name
         navigationController.pushViewController(viewController, animated: true)
     }
+
+    public func toProductScreen(product: Product) {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .systemBackground
+        viewController.title = product.name
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }
