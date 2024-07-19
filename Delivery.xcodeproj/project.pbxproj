@@ -258,7 +258,6 @@
 			children = (
 				73101FF52C2ECE2A0001BA5D /* UseCases */,
 				73101FF62C2ECE380001BA5D /* Entities */,
-				73101FF72C2ECE440001BA5D /* Repositories */,
 			);
 			path = DomainLayer;
 			sourceTree = "<group>";
@@ -281,18 +280,10 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		73101FF72C2ECE440001BA5D /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
 		73101FF82C2ECE6C0001BA5D /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
 				73101FF92C2ECE8D0001BA5D /* Repositories */,
-				73101FFA2C2ECE9C0001BA5D /* DataSources */,
 				7310203F2C2F50210001BA5D /* Models */,
 				7310204D2C2F67190001BA5D /* Services */,
 			);
@@ -308,13 +299,6 @@
 				738E88DE2C34252500AFB0DA /* FirebaseCategoriesService.swift */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		73101FFA2C2ECE9C0001BA5D /* DataSources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataSources;
 			sourceTree = "<group>";
 		};
 		73101FFC2C2ECEC00001BA5D /* CommonLayer */ = {
