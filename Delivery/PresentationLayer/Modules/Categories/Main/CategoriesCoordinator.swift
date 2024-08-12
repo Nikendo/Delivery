@@ -24,8 +24,9 @@ public final class CategoriesCoordinator: CategoriesCoordinatorProtocol {
     }
 
     public func toCategoryScreen(category: Category) {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .systemBackground
+        let getProductsUseCase = GetProductsUseCase(categoryService: FirebaseCategoryService(), category: category)
+        let viewModel = CategoryViewModel(coordinator: self, getProductsUseCase: getProductsUseCase)
+        let viewController = CategoryViewController(viewModel: viewModel)
         viewController.title = category.name
         navigationController.pushViewController(viewController, animated: true)
     }

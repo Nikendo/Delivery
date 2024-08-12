@@ -16,6 +16,8 @@ public struct Product: Hashable, Decodable {
         case description
         case country
         case price
+        case quantityType = "quantity_type"
+        case kind
         case isFavorite = "is_favorite"
     }
 
@@ -25,15 +27,29 @@ public struct Product: Hashable, Decodable {
     public let description: String
     public let country: String
     public let price: Double
+    public let quantityType: String
     public let isFavorite: Bool
+    public let kind: String
 
-    public init(id: String, imageUrls: [String], name: String, description: String, country: String, price: Double, isFavorite: Bool) {
+    public init(
+        id: String,
+        imageUrls: [String],
+        name: String,
+        description: String,
+        country: String,
+        price: Double,
+        quantityType: String,
+        kind: String,
+        isFavorite: Bool
+    ) {
         self.id = id
         self.imageUrls = imageUrls
         self.name = name
         self.description = description
         self.country = country
         self.price = price
+        self.quantityType = quantityType
+        self.kind = kind
         self.isFavorite = isFavorite
     }
 
@@ -45,6 +61,8 @@ public struct Product: Hashable, Decodable {
         self.description = try container.decode(String.self, forKey: .description)
         self.country = try container.decode(String.self, forKey: .country)
         self.price = try container.decode(Double.self, forKey: .price)
+        self.quantityType = try container.decode(String.self, forKey: .quantityType)
+        self.kind = try container.decode(String.self, forKey: .kind)
         self.isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
     }
 }

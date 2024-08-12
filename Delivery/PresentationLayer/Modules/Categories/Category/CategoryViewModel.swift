@@ -22,6 +22,7 @@ public final class CategoryViewModel: CategoryViewModelProtocol {
     public init(coordinator: CategoriesCoordinatorProtocol?, getProductsUseCase: GetProductsUseCaseProtocol) {
         self.coordinator = coordinator
         self.getProductsUseCase = getProductsUseCase
+        bind()
     }
 
     public func fetchProducts() {

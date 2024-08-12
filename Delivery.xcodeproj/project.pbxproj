@@ -57,6 +57,10 @@
 		732D730B2C33376100791A4B /* MockGetCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D730A2C33376100791A4B /* MockGetCategoriesUseCase.swift */; };
 		732D730D2C33581200791A4B /* MockCategoriesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D730C2C33581200791A4B /* MockCategoriesCoordinator.swift */; };
 		732D730F2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D730E2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift */; };
+		7351431D2C580B74003785F4 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351431C2C580B74003785F4 /* ProductCollectionViewCell.swift */; };
+		73871B6F2C679B1900FF9AA8 /* GetProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73871B6E2C679B1900FF9AA8 /* GetProductsUseCase.swift */; };
+		73871B712C679B9E00FF9AA8 /* CategoryServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73871B702C679B9E00FF9AA8 /* CategoryServiceProtocol.swift */; };
+		73871B732C679C0E00FF9AA8 /* FirebaseCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73871B722C679C0E00FF9AA8 /* FirebaseCategoryService.swift */; };
 		738925DD2C4A79C700FC218A /* CategoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925DC2C4A79C700FC218A /* CategoryViewModelTests.swift */; };
 		738925DF2C4A93AB00FC218A /* MockProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925DE2C4A93AB00FC218A /* MockProducts.swift */; };
 		738925E12C4A9E2300FC218A /* ProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925E02C4A9E2300FC218A /* ProductTests.swift */; };
@@ -65,6 +69,8 @@
 		738925E92C4AC24500FC218A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925E82C4AC24500FC218A /* Product.swift */; };
 		738925EB2C4AC5E900FC218A /* CategoryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925EA2C4AC5E900FC218A /* CategoryViewModelProtocol.swift */; };
 		738925ED2C4AC6AA00FC218A /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925EC2C4AC6AA00FC218A /* CategoryViewModel.swift */; };
+		738925EF2C4ACF9600FC218A /* CategoryViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925EE2C4ACF9600FC218A /* CategoryViewControllerProtocol.swift */; };
+		738925F12C4ACFD000FC218A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738925F02C4ACFD000FC218A /* CategoryViewController.swift */; };
 		738E88DD2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E88DC2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift */; };
 		738E88DF2C34252500AFB0DA /* FirebaseCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E88DE2C34252500AFB0DA /* FirebaseCategoriesService.swift */; };
 		738E88E12C34257D00AFB0DA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 738E88E02C34257D00AFB0DA /* FirebaseFirestore */; };
@@ -144,6 +150,10 @@
 		732D730A2C33376100791A4B /* MockGetCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetCategoriesUseCase.swift; sourceTree = "<group>"; };
 		732D730C2C33581200791A4B /* MockCategoriesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesCoordinator.swift; sourceTree = "<group>"; };
 		732D730E2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		7351431C2C580B74003785F4 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		73871B6E2C679B1900FF9AA8 /* GetProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsUseCase.swift; sourceTree = "<group>"; };
+		73871B702C679B9E00FF9AA8 /* CategoryServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryServiceProtocol.swift; sourceTree = "<group>"; };
+		73871B722C679C0E00FF9AA8 /* FirebaseCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCategoryService.swift; sourceTree = "<group>"; };
 		738925DC2C4A79C700FC218A /* CategoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelTests.swift; sourceTree = "<group>"; };
 		738925DE2C4A93AB00FC218A /* MockProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProducts.swift; sourceTree = "<group>"; };
 		738925E02C4A9E2300FC218A /* ProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTests.swift; sourceTree = "<group>"; };
@@ -152,6 +162,8 @@
 		738925E82C4AC24500FC218A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		738925EA2C4AC5E900FC218A /* CategoryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelProtocol.swift; sourceTree = "<group>"; };
 		738925EC2C4AC6AA00FC218A /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		738925EE2C4ACF9600FC218A /* CategoryViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewControllerProtocol.swift; sourceTree = "<group>"; };
+		738925F02C4ACFD000FC218A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		738E88DC2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesServiceProtocol.swift; sourceTree = "<group>"; };
 		738E88DE2C34252500AFB0DA /* FirebaseCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCategoriesService.swift; sourceTree = "<group>"; };
 		738E88E22C344C7D00AFB0DA /* CategoriesViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerProtocol.swift; sourceTree = "<group>"; };
@@ -314,6 +326,8 @@
 				7310204A2C2F612B0001BA5D /* FirebaseAuthService.swift */,
 				738E88DC2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift */,
 				738E88DE2C34252500AFB0DA /* FirebaseCategoriesService.swift */,
+				73871B702C679B9E00FF9AA8 /* CategoryServiceProtocol.swift */,
+				73871B722C679C0E00FF9AA8 /* FirebaseCategoryService.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -474,6 +488,7 @@
 				732D73062C3336CB00791A4B /* GetCategoriesUseCaseProtocol.swift */,
 				732D73082C33371400791A4B /* GetCategoriesUseCase.swift */,
 				738925E62C4AA87200FC218A /* GetProductsUseCaseProtocol.swift */,
+				73871B6E2C679B1900FF9AA8 /* GetProductsUseCase.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -497,6 +512,8 @@
 			children = (
 				738925EA2C4AC5E900FC218A /* CategoryViewModelProtocol.swift */,
 				738925EC2C4AC6AA00FC218A /* CategoryViewModel.swift */,
+				738925EE2C4ACF9600FC218A /* CategoryViewControllerProtocol.swift */,
+				738925F02C4ACFD000FC218A /* CategoryViewController.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -505,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				738E88E72C345D9F00AFB0DA /* CategoryCollectionViewCell.swift */,
+				7351431C2C580B74003785F4 /* ProductCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -674,6 +692,7 @@
 				738925ED2C4AC6AA00FC218A /* CategoryViewModel.swift in Sources */,
 				732062332C396293000ECC93 /* SearchController.swift in Sources */,
 				7310204F2C2F67450001BA5D /* UserSessionManager.swift in Sources */,
+				73871B6F2C679B1900FF9AA8 /* GetProductsUseCase.swift in Sources */,
 				7310205C2C2F70380001BA5D /* UserInfo.swift in Sources */,
 				732D73092C33371400791A4B /* GetCategoriesUseCase.swift in Sources */,
 				738E88E32C344C7D00AFB0DA /* CategoriesViewControllerProtocol.swift in Sources */,
@@ -682,13 +701,16 @@
 				731020122C2EDB1B0001BA5D /* CartViewController.swift in Sources */,
 				7310205F2C2F704E0001BA5D /* UserSession.swift in Sources */,
 				732D730F2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift in Sources */,
+				73871B712C679B9E00FF9AA8 /* CategoryServiceProtocol.swift in Sources */,
 				738925E72C4AA87200FC218A /* GetProductsUseCaseProtocol.swift in Sources */,
 				7310204B2C2F612B0001BA5D /* FirebaseAuthService.swift in Sources */,
 				7310201C2C2EE83C0001BA5D /* WelcomeCoordinator.swift in Sources */,
 				738925E92C4AC24500FC218A /* Product.swift in Sources */,
 				7310200F2C2EDA270001BA5D /* CategoriesViewController.swift in Sources */,
 				731020212C2F085E0001BA5D /* UITextField+Publisher.swift in Sources */,
+				738925EF2C4ACF9600FC218A /* CategoryViewControllerProtocol.swift in Sources */,
 				73101FED2C2DC2230001BA5D /* WelcomeViewController.swift in Sources */,
+				73871B732C679C0E00FF9AA8 /* FirebaseCategoryService.swift in Sources */,
 				73246AEB2C3AAE43007E74C4 /* UIImage+Async.swift in Sources */,
 				731020082C2ED7BA0001BA5D /* MainTabBarCoordinator.swift in Sources */,
 				731020152C2EDB3E0001BA5D /* ProfileViewController.swift in Sources */,
@@ -697,6 +719,7 @@
 				73AC2AED2C4083D200620CB6 /* ImageCache.swift in Sources */,
 				732D73022C33189D00791A4B /* CategoriesViewModelProtocol.swift in Sources */,
 				731020232C2F1AD60001BA5D /* ObservableValue.swift in Sources */,
+				7351431D2C580B74003785F4 /* ProductCollectionViewCell.swift in Sources */,
 				7310201A2C2EDC3B0001BA5D /* ProfileCoordinator.swift in Sources */,
 				731020382C2F45670001BA5D /* AuthServiceProtocol.swift in Sources */,
 				731020032C2ECFAC0001BA5D /* Coordinator.swift in Sources */,
@@ -706,6 +729,7 @@
 				73101FDB2C2DC0DB0001BA5D /* SceneDelegate.swift in Sources */,
 				732D72F92C32EA0600791A4B /* Category.swift in Sources */,
 				732D73072C3336CB00791A4B /* GetCategoriesUseCaseProtocol.swift in Sources */,
+				738925F12C4ACFD000FC218A /* CategoryViewController.swift in Sources */,
 				731020262C2F2A890001BA5D /* LoginUseCase.swift in Sources */,
 				731020282C2F2ABF0001BA5D /* User.swift in Sources */,
 				731020412C2F503E0001BA5D /* LoginError.swift in Sources */,
