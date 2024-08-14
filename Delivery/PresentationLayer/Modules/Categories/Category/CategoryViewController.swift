@@ -10,12 +10,18 @@ import Combine
 
 
 public final class CategoryViewController: UIViewController, CategoryViewControllerProtocol {
-    private enum Section {
+    private enum Section: Int {
+        case tags
         case products
     }
 
-    private typealias DataSource = UICollectionViewDiffableDataSource<Section, Product>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Product>
+    private enum Item: Hashable {
+        case tag(FilterItem)
+        case product(Product)
+    }
+
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, Item>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Item>
 
     public var viewModel: CategoryViewModelProtocol
 
@@ -65,7 +71,10 @@ public final class CategoryViewController: UIViewController, CategoryViewControl
 }
 
 extension CategoryViewController: UICollectionViewDelegate {
-
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.section == Section.tags.rawValue else { return }
+        viewModel.selectTag(id: viewModel.tags.value[indexPath.row].id)
+    }
 }
 
 extension CategoryViewController: UISearchResultsUpdating {
@@ -96,8 +105,8 @@ private extension CategoryViewController {
     func configureNavBarImage() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.configureWithDefaultBackground()
-        navBarAppearance.backgroundImageContentMode = .topRight
-        navBarAppearance.backgroundImage = UIImage(resource: .navImgVegetables)
+        navBarAppearance.backgroundImageContentMode = .bottomRight
+        navBarAppearance.backgroundImage = UIImage(resource: .navImgVegetables1)
 
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         navigationController?.navigationBar.compactScrollEdgeAppearance = navBarAppearance
@@ -125,63 +134,127 @@ private extension CategoryViewController {
 
     func configureCollectionView() {
         configureLayout()
-        applySnapshot(products: viewModel.products.value)
+        applySnapshot(tags: viewModel.tags.value, products: viewModel.products.value)
     }
 
     func configureLayout() {
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
+            guard sectionIndex == 0 else {
+                return self.createProductsSection()
+            }
+            return self.createTagsSection()
+        }
+    }
+
+    func createTagsSection() -> NSCollectionLayoutSection {
+        collectionView.register(
+            FilterViewCell.self,
+            forCellWithReuseIdentifier: FilterViewCell.cellIdentifier
+        )
+
+        // a tag
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(200),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        // horizontal tags group
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .estimated(100),
+            heightDimension: .absolute(34)
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+
+        // tags section
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.interGroupSpacing = 8
+        section.contentInsets = .init(top: 4, leading: 8, bottom: 4, trailing: 8)
+
+        return section
+    }
+
+    func createProductsSection() -> NSCollectionLayoutSection {
         collectionView.register(
             ProductCollectionViewCell.self,
             forCellWithReuseIdentifier: ProductCollectionViewCell.cellIdentifier
         )
 
+        // a product
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .absolute(160.0)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        // vertical products group
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0)
         )
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+
+        // products section
         let section = NSCollectionLayoutSection(group: group)
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        collectionView.collectionViewLayout = layout
+
+        return section
     }
 
     private func configureDataSource() -> DataSource {
-        DataSource(collectionView: collectionView) { collectionView, indexPath, product in
+        DataSource(collectionView: collectionView) { collectionView, indexPath, item in
             let defCell = UICollectionViewCell()
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: ProductCollectionViewCell.cellIdentifier,
-                for: indexPath
-            ) as? ProductCollectionViewCell else { return defCell }
-            cell.configure(
-                product: product,
-                using: self.imageLoader,
-                favoriteActionHandler: { _ in
 
-                },
-                cartActionHandler: { _ in
+            switch Section(rawValue: indexPath.section) {
+            case .tags:
+                guard
+                    case let .tag(tag) = item,
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: FilterViewCell.cellIdentifier,
+                        for: indexPath
+                    ) as? FilterViewCell
+                else { return defCell }
 
-                }
-            )
-            return cell
+                cell.configure(tag)
+                return cell
+            case .products:
+                guard
+                    case let .product(product) = item,
+                    let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ProductCollectionViewCell.cellIdentifier,
+                    for: indexPath
+                ) as? ProductCollectionViewCell
+                else { return defCell }
+                cell.configure(
+                    product: product,
+                    using: self.imageLoader,
+                    favoriteActionHandler: { _ in
+
+                    },
+                    cartActionHandler: { _ in
+
+                    }
+                )
+                return cell
+            case .none:
+                return defCell
+            }
         }
     }
 
-    func applySnapshot(products: [Product], animatingDifferences: Bool = true) {
+    func applySnapshot(tags: [FilterItem], products: [Product], animatingDifferences: Bool = true) {
         var snapshot = Snapshot()
-        snapshot.appendSections([.products])
-        snapshot.appendItems(products)
+        snapshot.appendSections([.tags, .products])
+        snapshot.appendItems(tags.map { .tag($0) }, toSection: .tags)
+        snapshot.appendItems(products.map { .product($0) }, toSection: .products)
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 
     func bindViews() {
-        viewModel.products.$value
+        viewModel.products.$value.combineLatest(viewModel.tags.$value)
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] products in
-                self?.applySnapshot(products: products, animatingDifferences: true)
+            .sink { [weak self] products, tags in
+                self?.applySnapshot(tags: tags, products: products, animatingDifferences: true)
             }
             .store(in: &cancellables)
     }

@@ -81,6 +81,9 @@
 		73AC2AEF2C4180B300620CB6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AC2AEE2C4180B300620CB6 /* ImageLoader.swift */; };
 		73CF402B2C32E3C800D8DEFF /* CategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF402A2C32E3C800D8DEFF /* CategoriesViewControllerTests.swift */; };
 		73CF402D2C32E87F00D8DEFF /* CategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF402C2C32E87F00D8DEFF /* CategoriesTests.swift */; };
+		73D67DFC2C6CE8F700C07D29 /* CollectionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D67DFB2C6CE8F700C07D29 /* CollectionFilterView.swift */; };
+		73D67DFE2C6CE92600C07D29 /* FilterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D67DFD2C6CE92600C07D29 /* FilterViewCell.swift */; };
+		73D67E002C6CEB4C00C07D29 /* FilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D67DFF2C6CEB4C00C07D29 /* FilterItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +177,9 @@
 		73CF401F2C32E12600D8DEFF /* CategoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CategoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF402A2C32E3C800D8DEFF /* CategoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerTests.swift; sourceTree = "<group>"; };
 		73CF402C2C32E87F00D8DEFF /* CategoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTests.swift; sourceTree = "<group>"; };
+		73D67DFB2C6CE8F700C07D29 /* CollectionFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionFilterView.swift; sourceTree = "<group>"; };
+		73D67DFD2C6CE92600C07D29 /* FilterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewCell.swift; sourceTree = "<group>"; };
+		73D67DFF2C6CEB4C00C07D29 /* FilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,6 +516,7 @@
 		738925E52C4AA6B800FC218A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				73D67DFF2C6CEB4C00C07D29 /* FilterItem.swift */,
 				738925EA2C4AC5E900FC218A /* CategoryViewModelProtocol.swift */,
 				738925EC2C4AC6AA00FC218A /* CategoryViewModel.swift */,
 				738925EE2C4ACF9600FC218A /* CategoryViewControllerProtocol.swift */,
@@ -521,8 +528,10 @@
 		738E88E62C345D7E00AFB0DA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				73D67DFB2C6CE8F700C07D29 /* CollectionFilterView.swift */,
 				738E88E72C345D9F00AFB0DA /* CategoryCollectionViewCell.swift */,
 				7351431C2C580B74003785F4 /* ProductCollectionViewCell.swift */,
+				73D67DFD2C6CE92600C07D29 /* FilterViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -704,7 +713,9 @@
 				73871B712C679B9E00FF9AA8 /* CategoryServiceProtocol.swift in Sources */,
 				738925E72C4AA87200FC218A /* GetProductsUseCaseProtocol.swift in Sources */,
 				7310204B2C2F612B0001BA5D /* FirebaseAuthService.swift in Sources */,
+				73D67DFC2C6CE8F700C07D29 /* CollectionFilterView.swift in Sources */,
 				7310201C2C2EE83C0001BA5D /* WelcomeCoordinator.swift in Sources */,
+				73D67E002C6CEB4C00C07D29 /* FilterItem.swift in Sources */,
 				738925E92C4AC24500FC218A /* Product.swift in Sources */,
 				7310200F2C2EDA270001BA5D /* CategoriesViewController.swift in Sources */,
 				731020212C2F085E0001BA5D /* UITextField+Publisher.swift in Sources */,
@@ -731,6 +742,7 @@
 				732D73072C3336CB00791A4B /* GetCategoriesUseCaseProtocol.swift in Sources */,
 				738925F12C4ACFD000FC218A /* CategoryViewController.swift in Sources */,
 				731020262C2F2A890001BA5D /* LoginUseCase.swift in Sources */,
+				73D67DFE2C6CE92600C07D29 /* FilterViewCell.swift in Sources */,
 				731020282C2F2ABF0001BA5D /* User.swift in Sources */,
 				731020412C2F503E0001BA5D /* LoginError.swift in Sources */,
 			);

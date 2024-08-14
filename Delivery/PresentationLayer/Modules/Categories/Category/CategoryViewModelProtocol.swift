@@ -9,11 +9,13 @@ import Foundation
 
 
 public protocol CategoryViewModelProtocol: AnyObject {
+    var tags: ObservableValue<[FilterItem]> { get }
     var products: ObservableValue<[Product]> { get }
     var searchedText: ObservableValue<String> { get set }
     var error: ObservableValue<Error?> { get }
     var coordinator: CategoriesCoordinatorProtocol? { get }
 
     func fetchProducts()
+    func selectTag(id: String)
     func selectProduct(id: String)
 }
