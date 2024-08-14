@@ -50,11 +50,17 @@ public final class CategoryViewController: UIViewController, CategoryViewControl
     public override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
         viewModel.fetchProducts()
+        configureNavigationBar()
     }
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchController.updateAppearance()
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeNavBarImage()
     }
 }
 
@@ -77,14 +83,35 @@ private extension CategoryViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        configureNavigationTitle()
         configureSearchBar()
         configureCollectionView()
         bindViews()
     }
 
-    func configureNavigationTitle() {
+    func configureNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        configureNavBarImage()
+    }
+
+    func configureNavBarImage() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithDefaultBackground()
+        navBarAppearance.backgroundImageContentMode = .topRight
+        navBarAppearance.backgroundImage = UIImage(resource: .navImgVegetables)
+
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.compactScrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.compactAppearance = navBarAppearance
+    }
+
+    func removeNavBarImage() {
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithDefaultBackground()
+        navBarAppearance.backgroundImage = nil
+
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.compactScrollEdgeAppearance = navBarAppearance
+        navigationController?.navigationBar.compactAppearance = navBarAppearance
     }
 
     func configureSearchBar() {
