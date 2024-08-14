@@ -107,19 +107,18 @@ private extension CategoryViewController {
             forCellWithReuseIdentifier: ProductCollectionViewCell.cellIdentifier
         )
 
-        let spaceBetweenItems: CGFloat = 8
-        let screenWidth = view?.window?.screen.bounds.width ?? view.bounds.width
-
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        let itemWidth: CGFloat = screenWidth
-        let itemHeight: CGFloat = 160
-
-        layout.itemSize = .init(width: itemWidth, height: itemHeight)
-        layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
-        layout.minimumInteritemSpacing = spaceBetweenItems
-        layout.minimumLineSpacing = spaceBetweenItems
-        layout.scrollDirection = .vertical
-
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(160.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        let layout = UICollectionViewCompositionalLayout(section: section)
         collectionView.collectionViewLayout = layout
     }
 
