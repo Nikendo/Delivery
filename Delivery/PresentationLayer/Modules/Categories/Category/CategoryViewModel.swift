@@ -31,7 +31,7 @@ public final class CategoryViewModel: CategoryViewModelProtocol {
         Task {
             do {
                 allProducts.value = try await getProductsUseCase.execute()
-                tags.value = (allProducts.value + allProducts.value + allProducts.value).map { FilterItem(id: UUID().uuidString, text: $0.name, selected: false) }
+                tags.value = allProducts.value.map { FilterItem(id: UUID().uuidString, text: $0.name, selected: false) }
             } catch {
                 self.error.value = error
             }
