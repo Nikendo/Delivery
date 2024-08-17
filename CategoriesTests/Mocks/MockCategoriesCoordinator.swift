@@ -22,4 +22,8 @@ final class MockCategoriesCoordinator: CategoriesCoordinatorProtocol {
         selectedCategory = category
         toCategoryScreenCalled = true
     }
+    func toProductScreen(product: Delivery.Product) {
+        selectedProduct = product
+        toProductScreenCalled = true
+    }
 }

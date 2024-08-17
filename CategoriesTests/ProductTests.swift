@@ -18,6 +18,8 @@ final class ProductTests: XCTestCase {
         let description: String = "A fresh and sweet, tasty carrot from Russia with love."
         let country: String = "Russia"
         let price: Double = 1.1
+        let quantityType: String = "piece"
+        let kind: String = "vegetables"
         let isFavorite: Bool = true
         
         // When
@@ -28,6 +30,8 @@ final class ProductTests: XCTestCase {
             description: description,
             country: country,
             price: price,
+            quantityType: quantityType,
+            kind: kind,
             isFavorite: isFavorite
         )
 

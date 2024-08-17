@@ -49,6 +49,7 @@ final class CategoryViewModelTests: XCTestCase {
         getProductsUseCase.products = products
 
         viewModel.products.$value
+            .dropFirst()
             .sink { fetchedProducts in
                 // Then
                 XCTAssertEqual(fetchedProducts, products, "Fetched products are not equal to expected.")
@@ -70,19 +71,12 @@ final class CategoryViewModelTests: XCTestCase {
         getProductsUseCase.products = products
         getProductsUseCase.errorToThrow = testError
 
-        viewModel.products.$value
-            .sink { fetchedProducts in
-                // Then
-                XCTAssertTrue(fetchedProducts.isEmpty, "Fetched products are not equal to expected.")
-                expectation.fulfill()
-            }
-
         // When
         viewModel.fetchProducts()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             // Then
-            XCTAssertTrue(self.viewModel.products.isEmpty, "Fetched products should be empty due to a simulated error, but they are not empty.")
+            XCTAssertTrue(self.viewModel.products.value.isEmpty, "Fetched products should be empty due to a simulated error, but they are not empty.")
             expectation.fulfill()
         }
 
@@ -99,10 +93,11 @@ final class CategoryViewModelTests: XCTestCase {
 
         // When
         viewModel.fetchProducts()
+        viewModel.searchedText.value = filterText
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             // Then
-            let actualProducts: [Product] = self.viewModel.products
+            let actualProducts: [Product] = self.viewModel.products.value
             XCTAssertEqual(actualProducts, expectedFilteredProducts, "Actual filtered products are not equal to expected")
             expectation.fulfill()
         }
@@ -117,7 +112,7 @@ final class CategoryViewModelTests: XCTestCase {
         let expectedProduct = products[1]
         getProductsUseCase.products = products
 
-        viewModel.fetchCategories()
+        viewModel.fetchProducts()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             // When
