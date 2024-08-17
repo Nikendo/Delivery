@@ -104,7 +104,8 @@ private extension CategoryViewController {
 
     func configureNavBarImage() {
         let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithDefaultBackground()
+        navBarAppearance.configureWithTransparentBackground()
+        navBarAppearance.backgroundColor = .systemBackground
         navBarAppearance.backgroundImageContentMode = .bottomRight
         navBarAppearance.backgroundImage = UIImage(resource: .navImgVegetables1)
 
@@ -115,7 +116,7 @@ private extension CategoryViewController {
 
     func removeNavBarImage() {
         let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithDefaultBackground()
+        navBarAppearance.configureWithTransparentBackground()
         navBarAppearance.backgroundImage = nil
 
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
