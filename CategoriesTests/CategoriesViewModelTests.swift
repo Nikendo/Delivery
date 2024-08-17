@@ -44,7 +44,7 @@ final class CategoriesViewModelTests: XCTestCase {
             Category(id: UUID().uuidString, name: "Bread", count: 22),
             Category(id: UUID().uuidString, name: "Sweet", count: 14)
         ]
-        let expectation = XCTestExpectation(description: "Categories fetched")
+        let expectation = XCTestExpectation(description: "Expectation - Categories fetched success")
         getCategoriesUseCase.categories = categories
 
         // Then
@@ -69,7 +69,7 @@ final class CategoriesViewModelTests: XCTestCase {
             Category(id: UUID().uuidString, name: "Bread", count: 22),
             Category(id: UUID().uuidString, name: "Sweet", count: 14)
         ]
-        let expectation = XCTestExpectation(description: "Categories fetched")
+        let expectation = XCTestExpectation(description: "Expectation - Categories fetched failed")
         let testError = NSError(domain: "TestError", code: 1)
         getCategoriesUseCase.categories = categories
         getCategoriesUseCase.errorToThrow = testError
@@ -100,7 +100,7 @@ final class CategoriesViewModelTests: XCTestCase {
             categories[1]
         ]
         let filterText = "vege"
-        let expectation = XCTestExpectation(description: "Categories fetched")
+        let expectation = XCTestExpectation(description: "Expectation - Get filtered categories success")
 
         getCategoriesUseCase.categories = categories
 
@@ -129,7 +129,7 @@ final class CategoriesViewModelTests: XCTestCase {
         ]
         let expectedCategory = categories[1]
 
-        let expectation = XCTestExpectation(description: "Categories fetched")
+        let expectation = XCTestExpectation(description: "Expectation - Select category success")
 
         getCategoriesUseCase.categories = categories
 
@@ -167,7 +167,7 @@ final class CategoriesViewModelTests: XCTestCase {
             id = UUID().uuidString
         }
 
-        let expectation = XCTestExpectation(description: "Categories fetched")
+        let expectation = XCTestExpectation(description: "Expectation - Select category failed")
 
         getCategoriesUseCase.categories = categories
 
