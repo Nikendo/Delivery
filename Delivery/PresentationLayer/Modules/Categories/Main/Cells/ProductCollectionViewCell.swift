@@ -22,6 +22,7 @@ public class ProductCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     private lazy var titleLabel: UILabel = {
