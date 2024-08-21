@@ -20,10 +20,16 @@ public final class CategoryViewModel: CategoryViewModelProtocol {
     private var allProducts: ObservableValue<[Product]> = .init(value: [])
     private var cancellables = Set<AnyCancellable>()
     private let getProductsUseCase: any GetProductsUseCaseProtocol
+    private let updateProductUseCase: any UpdateProductUseCaseProtocol
 
-    public init(coordinator: CategoriesCoordinatorProtocol?, getProductsUseCase: GetProductsUseCaseProtocol) {
+    public init(
+        coordinator: CategoriesCoordinatorProtocol?,
+        getProductsUseCase: GetProductsUseCaseProtocol,
+        updateProductUseCase: UpdateProductUseCaseProtocol
+    ) {
         self.coordinator = coordinator
         self.getProductsUseCase = getProductsUseCase
+        self.updateProductUseCase = updateProductUseCase
         bind()
     }
 
@@ -53,6 +59,49 @@ public final class CategoryViewModel: CategoryViewModelProtocol {
     public func selectProduct(id: String) {
         guard let product = products.value.first(where: { $0.id == id }) else { return }
         coordinator?.toProductScreen(product: product)
+    }
+
+    public func addToFavorite(id: String) {
+//        guard let product = products.value.first(where: { $0.id == id }) else { return }
+//        products.value = products.value
+//            .map {
+//                id == $0.id ? Product(
+//                    id: $0.id,
+//                    imageUrls: $0.imageUrls,
+//                    name: $0.name,
+//                    description: $0.description,
+//                    country: $0.country,
+//                    price: $0.price,
+//                    quantityType: $0.quantityType,
+//                    kind: $0.kind,
+//                    isFavorite: !$0.isFavorite
+//                ) : $0
+//            }
+        Task {
+            guard let favoriteProduct = products.value.first(where: { $0.id == id }) else { return }
+            let product = Product(
+                id: favoriteProduct.id,
+                imageUrls: favoriteProduct.imageUrls,
+                name: favoriteProduct.name,
+                description: favoriteProduct.description,
+                country: favoriteProduct.country,
+                price: favoriteProduct.price,
+                quantityType: favoriteProduct.quantityType,
+                kind: favoriteProduct.kind,
+                isFavorite: !favoriteProduct.isFavorite
+            )
+            do {
+                let _ = try await updateProductUseCase.execute(product: product)
+            } catch {
+                self.error.value = error
+            }
+
+            fetchProducts()
+        }
+    }
+
+    public func addToCart(id: String) {
+        guard let product = products.value.first(where: { $0.id == id }) else { return }
     }
 }
 

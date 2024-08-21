@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct Product: Hashable, Decodable {
+public struct Product: Hashable, Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case imageUrls = "image_urls"

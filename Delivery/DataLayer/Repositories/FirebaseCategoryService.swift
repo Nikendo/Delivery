@@ -40,4 +40,16 @@ public final class FirebaseCategoryService: CategoryServiceProtocol {
         }.filter { $0.kind.lowercased() == category.name.lowercased() }
         return products
     }
+
+    public func updateProduct(_ product: Product) async throws {
+        let documentRef = db.collection("products").document(product.id)
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(product)
+        guard let dictionary = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            throw NSError(domain: "FirebaseProductDataSerializationError", code: 1, userInfo: [
+                NSLocalizedDescriptionKey: "Unable to convert data to [String: Any] dictionary."
+            ])
+        }
+        let _ = try await documentRef.updateData(dictionary)
+    }
 }

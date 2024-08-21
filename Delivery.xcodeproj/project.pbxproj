@@ -47,6 +47,8 @@
 		731020762C2FE6C30001BA5D /* MockUserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731020722C2FDAF80001BA5D /* MockUserSessionManager.swift */; };
 		732062332C396293000ECC93 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732062322C396293000ECC93 /* SearchController.swift */; };
 		73246AEB2C3AAE43007E74C4 /* UIImage+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73246AEA2C3AAE43007E74C4 /* UIImage+Async.swift */; };
+		732900EA2C7235BD0027C75A /* UpdateProductUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732900E92C7235BD0027C75A /* UpdateProductUseCaseProtocol.swift */; };
+		732900EC2C7236220027C75A /* UpdateProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732900EB2C7236220027C75A /* UpdateProductUseCase.swift */; };
 		732D72F92C32EA0600791A4B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D72F82C32EA0600791A4B /* Category.swift */; };
 		732D72FB2C32EB8000791A4B /* CategoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D72FA2C32EB8000791A4B /* CategoriesViewModelTests.swift */; };
 		732D72FE2C32ED0F00791A4B /* MockUserSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732D72FD2C32ED0F00791A4B /* MockUserSessionManager.swift */; };
@@ -143,6 +145,8 @@
 		731020722C2FDAF80001BA5D /* MockUserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserSessionManager.swift; sourceTree = "<group>"; };
 		732062322C396293000ECC93 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		73246AEA2C3AAE43007E74C4 /* UIImage+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Async.swift"; sourceTree = "<group>"; };
+		732900E92C7235BD0027C75A /* UpdateProductUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductUseCaseProtocol.swift; sourceTree = "<group>"; };
+		732900EB2C7236220027C75A /* UpdateProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProductUseCase.swift; sourceTree = "<group>"; };
 		732D72F82C32EA0600791A4B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		732D72FA2C32EB8000791A4B /* CategoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModelTests.swift; sourceTree = "<group>"; };
 		732D72FD2C32ED0F00791A4B /* MockUserSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserSessionManager.swift; sourceTree = "<group>"; };
@@ -495,6 +499,8 @@
 				732D73082C33371400791A4B /* GetCategoriesUseCase.swift */,
 				738925E62C4AA87200FC218A /* GetProductsUseCaseProtocol.swift */,
 				73871B6E2C679B1900FF9AA8 /* GetProductsUseCase.swift */,
+				732900E92C7235BD0027C75A /* UpdateProductUseCaseProtocol.swift */,
+				732900EB2C7236220027C75A /* UpdateProductUseCase.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -709,6 +715,7 @@
 				732D73042C33192900791A4B /* CategoriesViewModel.swift in Sources */,
 				731020122C2EDB1B0001BA5D /* CartViewController.swift in Sources */,
 				7310205F2C2F704E0001BA5D /* UserSession.swift in Sources */,
+				732900EA2C7235BD0027C75A /* UpdateProductUseCaseProtocol.swift in Sources */,
 				732D730F2C3358D100791A4B /* CategoriesCoordinatorProtocol.swift in Sources */,
 				73871B712C679B9E00FF9AA8 /* CategoryServiceProtocol.swift in Sources */,
 				738925E72C4AA87200FC218A /* GetProductsUseCaseProtocol.swift in Sources */,
@@ -724,6 +731,7 @@
 				73871B732C679C0E00FF9AA8 /* FirebaseCategoryService.swift in Sources */,
 				73246AEB2C3AAE43007E74C4 /* UIImage+Async.swift in Sources */,
 				731020082C2ED7BA0001BA5D /* MainTabBarCoordinator.swift in Sources */,
+				732900EC2C7236220027C75A /* UpdateProductUseCase.swift in Sources */,
 				731020152C2EDB3E0001BA5D /* ProfileViewController.swift in Sources */,
 				738E88DD2C341EFC00AFB0DA /* CategoriesServiceProtocol.swift in Sources */,
 				731020052C2ED5760001BA5D /* TabBarItems.swift in Sources */,

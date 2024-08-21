@@ -203,7 +203,7 @@ private extension CategoryViewController {
     }
 
     private func configureDataSource() -> DataSource {
-        DataSource(collectionView: collectionView) { collectionView, indexPath, item in
+        DataSource(collectionView: collectionView) { [weak viewModel] collectionView, indexPath, item in
             let defCell = UICollectionViewCell()
 
             switch Section(rawValue: indexPath.section) {
@@ -229,12 +229,7 @@ private extension CategoryViewController {
                 cell.configure(
                     product: product,
                     using: self.imageLoader,
-                    favoriteActionHandler: { _ in
-
-                    },
-                    cartActionHandler: { _ in
-
-                    }
+                    delegate: self
                 )
                 return cell
             case .none:
@@ -258,5 +253,15 @@ private extension CategoryViewController {
                 self?.applySnapshot(tags: tags, products: products, animatingDifferences: true)
             }
             .store(in: &cancellables)
+    }
+}
+
+extension CategoryViewController: ProductCollectionViewCellDelegate {
+    public func addToFavorite(id: String) {
+        viewModel.addToFavorite(id: id)
+    }
+    
+    public func addToCart(id: String) {
+        viewModel.addToCart(id: id)
     }
 }

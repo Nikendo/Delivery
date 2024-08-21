@@ -18,4 +18,6 @@ public protocol CategoryViewModelProtocol: AnyObject {
     func fetchProducts()
     func selectTag(id: String)
     func selectProduct(id: String)
+    func addToFavorite(id: String)
+    func addToCart(id: String)
 }

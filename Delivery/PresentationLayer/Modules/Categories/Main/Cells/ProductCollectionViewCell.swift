@@ -7,11 +7,15 @@
 
 import UIKit
 
+public protocol ProductCollectionViewCellDelegate: AnyObject {
+    func addToFavorite(id: String)
+    func addToCart(id: String)
+}
+
 public class ProductCollectionViewCell: UICollectionViewCell {
     public static let cellIdentifier: String = "ProductCollectionViewCell"
 
-    private var favoriteActionHandler: UIActionHandler = { _ in }
-    private var cartActionHandler: UIActionHandler = { _ in }
+    private weak var delegate: ProductCollectionViewCellDelegate?
 
     private lazy var productImageView: UIImageView = {
         let imageView = UIImageView()
@@ -39,7 +43,7 @@ public class ProductCollectionViewCell: UICollectionViewCell {
         configuration.background.strokeWidth = 1.0
         configuration.image = UIImage(systemName: "heart")
         configuration.imagePlacement = .all
-        let button = UIButton(configuration: configuration, primaryAction: UIAction(handler: favoriteActionHandler))
+        let button = UIButton(configuration: configuration)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -48,7 +52,7 @@ public class ProductCollectionViewCell: UICollectionViewCell {
         configuration.baseBackgroundColor = UIColor(resource: ._0_BCE_83)
         configuration.image = UIImage(systemName: "cart")
         configuration.imagePlacement = .all
-        let button = UIButton(configuration: configuration, primaryAction: UIAction(handler: cartActionHandler))
+        let button = UIButton(configuration: configuration)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -71,12 +75,30 @@ public class ProductCollectionViewCell: UICollectionViewCell {
 
     public override func prepareForReuse() {
         super.prepareForReuse()
+        favoriteButton.configuration?.image = UIImage(systemName: "heart")
         productImageView.image = nil
         titleLabel.text = nil
         priceLabel.text = nil
     }
 
-    public func configure(product: Product, using loader: ImageLoaderProtocol, favoriteActionHandler: UIActionHandler, cartActionHandler: UIActionHandler) {
+    public func configure(
+        product: Product,
+        using loader: ImageLoaderProtocol,
+        delegate: ProductCollectionViewCellDelegate
+    ) {
+        self.delegate = delegate
+        favoriteButton.addAction(
+            UIAction(handler: { [weak self] _ in
+                self?.delegate?.addToFavorite(id: product.id) }),
+            for: .touchUpInside
+        )
+        favoriteButton.configuration?.image = UIImage(systemName: product.isFavorite ? "heart.fill" : "heart")
+
+        cartButton.addAction(
+            UIAction(handler: { [weak self] _ in self?.delegate?.addToCart(id: product.id) }),
+            for: .touchUpInside
+        )
+
         if let imageUrlString = product.imageUrls.last, let url = URL(string: imageUrlString) {
             productImageView.setImage(from: url, using: loader)
         } else {
