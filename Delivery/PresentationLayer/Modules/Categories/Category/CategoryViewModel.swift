@@ -62,21 +62,6 @@ public final class CategoryViewModel: CategoryViewModelProtocol {
     }
 
     public func addToFavorite(id: String) {
-//        guard let product = products.value.first(where: { $0.id == id }) else { return }
-//        products.value = products.value
-//            .map {
-//                id == $0.id ? Product(
-//                    id: $0.id,
-//                    imageUrls: $0.imageUrls,
-//                    name: $0.name,
-//                    description: $0.description,
-//                    country: $0.country,
-//                    price: $0.price,
-//                    quantityType: $0.quantityType,
-//                    kind: $0.kind,
-//                    isFavorite: !$0.isFavorite
-//                ) : $0
-//            }
         Task {
             guard let favoriteProduct = products.value.first(where: { $0.id == id }) else { return }
             let product = Product(
