@@ -22,6 +22,7 @@ final class CategoryViewModelTests: XCTestCase {
 
     private var cancellables: Set<AnyCancellable>!
     private var getProductsUseCase: MockGetProductsUseCase!
+    private var addProductToFavoriteUseCase: MockAddProductToFavoriteUseCase!
     private var coordinator: MockCategoriesCoordinator!
     private var viewModel: CategoryViewModel!
 
@@ -30,13 +31,19 @@ final class CategoryViewModelTests: XCTestCase {
         super.setUp()
         cancellables = []
         getProductsUseCase = MockGetProductsUseCase()
+        addProductToFavoriteUseCase = MockAddProductToFavoriteUseCase()
         coordinator = MockCategoriesCoordinator()
-        viewModel = CategoryViewModel(coordinator: coordinator, getProductsUseCase: getProductsUseCase)
+        viewModel = CategoryViewModel(
+            coordinator: coordinator,
+            getProductsUseCase: getProductsUseCase,
+            updateProductUseCase: addProductToFavoriteUseCase
+        )
     }
 
     override func tearDown() {
         cancellables = nil
         getProductsUseCase = nil
+        addProductToFavoriteUseCase = nil
         coordinator = nil
         viewModel = nil
         super.tearDown()
@@ -44,7 +51,7 @@ final class CategoryViewModelTests: XCTestCase {
 
     func testGetProductsSuccess() {
         // Given
-        let expectation = XCTestExpectation(description: "Products fetched")
+        let expectation = XCTestExpectation(description: "Products are fetched success")
         let products: [Product] = MockProducts.vegetables
         getProductsUseCase.products = products
 
@@ -65,7 +72,7 @@ final class CategoryViewModelTests: XCTestCase {
 
     func testGetProductsFailed() {
         // Given
-        let expectation = XCTestExpectation(description: "Products fetched")
+        let expectation = XCTestExpectation(description: "Products are fetched failed")
         let testError = NSError(domain: "TestError", code: 1)
         let products: [Product] = MockProducts.vegetables
         getProductsUseCase.products = products
@@ -85,7 +92,7 @@ final class CategoryViewModelTests: XCTestCase {
 
     func testGetFilteredProductsSuccess() {
         // Given
-        let expectation = XCTestExpectation(description: "Products fetched")
+        let expectation = XCTestExpectation(description: "Products are filtered")
         let products: [Product] = MockProducts.vegetables
         getProductsUseCase.products = products
         let filterText: String = "Ca"
@@ -107,7 +114,7 @@ final class CategoryViewModelTests: XCTestCase {
 
     func testSelectProductSuccess() {
         // Given
-        let expectation = XCTestExpectation(description: "Products fetched")
+        let expectation = XCTestExpectation(description: "Product is selected")
         let products: [Product] = MockProducts.vegetables
         let expectedProduct = products[1]
         getProductsUseCase.products = products
@@ -123,6 +130,43 @@ final class CategoryViewModelTests: XCTestCase {
             XCTAssertEqual(actualProduct, expectedProduct, "Actual selected product are not equal to expected")
             let actualResult = self.coordinator.toProductScreenCalled
             XCTAssertTrue(actualResult, "Coordinator's method 'toProductScreen' should be called when a product selected")
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 2.0)
+    }
+
+    func testAddProductToFavoriteSuccess() {
+        // Given
+        let expectation = XCTestExpectation(description: "Product is added to favorite")
+        let product = MockProducts.vegetables.first!
+
+        // When
+        viewModel.addToFavorite(id: product.id)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            // Then
+            XCTAssertNil(self.viewModel.error.value, "An error field should to be nil, but it contains an error")
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 2.0)
+    }
+
+    func testAddProductToFavoriteFailed() {
+        // Given
+        let expectation = XCTestExpectation(description: "Product is added to favorite")
+        let product = MockProducts.vegetables.first!
+
+        let testError = NSError(domain: "TestError", code: 1)
+        
+        // When
+        addProductToFavoriteUseCase.errorToThrow = testError
+        viewModel.addToFavorite(id: product.id)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            // Then
+            XCTAssertFalse(self.addProductToFavoriteUseCase.productWasAddedToFavorite, "An error field should contain error, but it contains nil")
             expectation.fulfill()
         }
 

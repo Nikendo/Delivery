@@ -81,6 +81,7 @@
 		738E88E82C345D9F00AFB0DA /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738E88E72C345D9F00AFB0DA /* CategoryCollectionViewCell.swift */; };
 		73AC2AED2C4083D200620CB6 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AC2AEC2C4083D200620CB6 /* ImageCache.swift */; };
 		73AC2AEF2C4180B300620CB6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AC2AEE2C4180B300620CB6 /* ImageLoader.swift */; };
+		73BAF0C72C769B6200115E22 /* MockUpdateProductUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BAF0C62C769B6100115E22 /* MockUpdateProductUseCase.swift */; };
 		73CF402B2C32E3C800D8DEFF /* CategoriesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF402A2C32E3C800D8DEFF /* CategoriesViewControllerTests.swift */; };
 		73CF402D2C32E87F00D8DEFF /* CategoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CF402C2C32E87F00D8DEFF /* CategoriesTests.swift */; };
 		73D67DFC2C6CE8F700C07D29 /* CollectionFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D67DFB2C6CE8F700C07D29 /* CollectionFilterView.swift */; };
@@ -178,6 +179,7 @@
 		738E88E72C345D9F00AFB0DA /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		73AC2AEC2C4083D200620CB6 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		73AC2AEE2C4180B300620CB6 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		73BAF0C62C769B6100115E22 /* MockUpdateProductUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUpdateProductUseCase.swift; sourceTree = "<group>"; };
 		73CF401F2C32E12600D8DEFF /* CategoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CategoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CF402A2C32E3C800D8DEFF /* CategoriesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewControllerTests.swift; sourceTree = "<group>"; };
 		73CF402C2C32E87F00D8DEFF /* CategoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTests.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 				738E88E42C34541000AFB0DA /* MockCategoriesViewModel.swift */,
 				738925DE2C4A93AB00FC218A /* MockProducts.swift */,
 				738925E22C4AA36700FC218A /* MockGetProductsUseCase.swift */,
+				73BAF0C62C769B6100115E22 /* MockUpdateProductUseCase.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				738925E32C4AA36700FC218A /* MockGetProductsUseCase.swift in Sources */,
 				738925DF2C4A93AB00FC218A /* MockProducts.swift in Sources */,
 				732D72FE2C32ED0F00791A4B /* MockUserSessionManager.swift in Sources */,
+				73BAF0C72C769B6200115E22 /* MockUpdateProductUseCase.swift in Sources */,
 				738E88E52C34541000AFB0DA /* MockCategoriesViewModel.swift in Sources */,
 				732D730B2C33376100791A4B /* MockGetCategoriesUseCase.swift in Sources */,
 				738925E12C4A9E2300FC218A /* ProductTests.swift in Sources */,
