@@ -36,24 +36,13 @@ public class ProductCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private lazy var favoriteButton: UIButton = {
-        var configuration = UIButton.Configuration.borderedProminent()
-        configuration.baseBackgroundColor = .systemBackground
-        configuration.baseForegroundColor = .secondaryLabel
-        configuration.background.strokeColor = .systemGray2
-        configuration.background.strokeWidth = 1.0
-        configuration.image = UIImage(systemName: "heart")
-        configuration.imagePlacement = .all
-        let button = UIButton(configuration: configuration)
+    private lazy var favoriteButton: ProductButton = {
+        let  button = ProductButton(style: .shortIcon, color: .white, icon: UIImage(systemName: "heart"))
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    private lazy var cartButton: UIButton = {
-        var configuration = UIButton.Configuration.borderedProminent()
-        configuration.baseBackgroundColor = UIColor(resource: ._0_BCE_83)
-        configuration.image = UIImage(systemName: "cart")
-        configuration.imagePlacement = .all
-        let button = UIButton(configuration: configuration)
+    private lazy var cartButton: ProductButton = {
+        let  button = ProductButton(style: .shortIcon, color: .green, icon: UIImage(systemName: "cart"))
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -93,7 +82,11 @@ public class ProductCollectionViewCell: UICollectionViewCell {
                 self?.delegate?.addToFavorite(id: product.id) }),
             for: .touchUpInside
         )
-        favoriteButton.configuration?.image = UIImage(systemName: product.isFavorite ? "heart.fill" : "heart")
+        favoriteButton.changeButton(
+            style: .shortIcon,
+            color: .white,
+            icon: UIImage(systemName: product.isFavorite ? "heart.fill" : "heart")
+        )
 
         cartButton.addAction(
             UIAction(handler: { [weak self] _ in self?.delegate?.addToCart(id: product.id) }),
