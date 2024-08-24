@@ -72,8 +72,11 @@ public final class CategoryViewController: UIViewController, CategoryViewControl
 
 extension CategoryViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard indexPath.section == Section.tags.rawValue else { return }
-        viewModel.selectTag(id: viewModel.tags.value[indexPath.row].id)
+        switch Section(rawValue: indexPath.section) {
+        case .tags: viewModel.selectTag(id: viewModel.tags.value[indexPath.row].id)
+        case .products: viewModel.selectProduct(id: viewModel.products.value[indexPath.row].id)
+        default: break
+        }
     }
 }
 

@@ -121,7 +121,7 @@ private extension ProductCollectionViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(buttonsStackView)
-
+        
         NSLayoutConstraint.activate([
             productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),

@@ -21,6 +21,8 @@ public final class FirebaseCategoryService: CategoryServiceProtocol {
                 let description = $0["description"] as? String,
                 let imgUrls = $0["image_urls"] as? [String],
                 let price = $0["price"] as? Double,
+                let averageWeight = $0["average_weight"] as? Double,
+                let weightUnit = $0["weight_unit"] as? String,
                 let quantityType = $0["quantity_type"] as? String,
                 let kind = $0["kind"] as? String,
                 let isFavorite = $0["is_favorite"] as? Bool
@@ -33,6 +35,8 @@ public final class FirebaseCategoryService: CategoryServiceProtocol {
                 description: description,
                 country: country,
                 price: price,
+                averageWeight: averageWeight,
+                weightUnit: weightUnit,
                 quantityType: quantityType,
                 kind: kind,
                 isFavorite: isFavorite
@@ -51,5 +55,9 @@ public final class FirebaseCategoryService: CategoryServiceProtocol {
             ])
         }
         let _ = try await documentRef.updateData(dictionary)
+    }
+    
+    public func addProductToCart(_ product: Product) async throws {
+        // a fake implementation of adding the product to the cart
     }
 }
