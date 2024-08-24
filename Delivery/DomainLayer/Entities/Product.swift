@@ -16,6 +16,8 @@ public struct Product: Hashable, Codable {
         case description
         case country
         case price
+        case averageWeight = "average_weight"
+        case weightUnit = "weight_unit"
         case quantityType = "quantity_type"
         case kind
         case isFavorite = "is_favorite"
@@ -27,6 +29,8 @@ public struct Product: Hashable, Codable {
     public let description: String
     public let country: String
     public let price: Double
+    public let averageWeight: Double
+    public let weightUnit: String
     public let quantityType: String
     public let isFavorite: Bool
     public let kind: String
@@ -38,6 +42,8 @@ public struct Product: Hashable, Codable {
         description: String,
         country: String,
         price: Double,
+        averageWeight: Double,
+        weightUnit: String,
         quantityType: String,
         kind: String,
         isFavorite: Bool
@@ -48,6 +54,8 @@ public struct Product: Hashable, Codable {
         self.description = description
         self.country = country
         self.price = price
+        self.averageWeight = averageWeight
+        self.weightUnit = weightUnit
         self.quantityType = quantityType
         self.kind = kind
         self.isFavorite = isFavorite
@@ -61,6 +69,8 @@ public struct Product: Hashable, Codable {
         self.description = try container.decode(String.self, forKey: .description)
         self.country = try container.decode(String.self, forKey: .country)
         self.price = try container.decode(Double.self, forKey: .price)
+        self.averageWeight = try container.decode(Double.self, forKey: .averageWeight)
+        self.weightUnit = try container.decode(String.self, forKey: .weightUnit)
         self.quantityType = try container.decode(String.self, forKey: .quantityType)
         self.kind = try container.decode(String.self, forKey: .kind)
         self.isFavorite = try container.decode(Bool.self, forKey: .isFavorite)

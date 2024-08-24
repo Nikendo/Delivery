@@ -1,12 +1,13 @@
 //
-//  UpdateProductUseCase.swift
+//  AddProductToCartUseCase.swift
 //  Delivery
 //
-//  Created by Shmatov Nikita on 18.08.2024.
+//  Created by Shmatov Nikita on 06.09.2024.
 //
 
+import Foundation
 
-public class UpdateProductUseCase: UpdateProductUseCaseProtocol {
+public class AddProductToCartUseCase: AddProductToCartUseCaseProtocol {
     private let categoryService: CategoryServiceProtocol
 
     public init(categoryService: CategoryServiceProtocol) {
@@ -14,6 +15,6 @@ public class UpdateProductUseCase: UpdateProductUseCaseProtocol {
     }
 
     public func execute(product: Product) async throws {
-        try await categoryService.updateProduct(product)
+        try await categoryService.addProductToCart(product)
     }
 }

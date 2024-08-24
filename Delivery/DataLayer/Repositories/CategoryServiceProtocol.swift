@@ -11,4 +11,5 @@ import Foundation
 public protocol CategoryServiceProtocol: AnyObject {
     func fetchProducts(for category: Category) async throws -> [Product]
     func updateProduct(_ product: Product) async throws
+    func addProductToCart(_ product: Product) async throws
 }

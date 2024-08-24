@@ -26,11 +26,11 @@ public final class CategoriesCoordinator: CategoriesCoordinatorProtocol {
     public func toCategoryScreen(category: Category) {
         let service = FirebaseCategoryService()
         let getProductsUseCase = GetProductsUseCase(categoryService: service, category: category)
-        let updateProductUseCase = UpdateProductUseCase(categoryService: service)
+        let addProductToFavoriteUseCase = AddProductToFavoriteUseCase(categoryService: service)
         let viewModel = CategoryViewModel(
             coordinator: self,
             getProductsUseCase: getProductsUseCase,
-            updateProductUseCase: updateProductUseCase
+            addProductToFavoriteUseCase: addProductToFavoriteUseCase
         )
         let viewController = CategoryViewController(viewModel: viewModel)
         viewController.title = category.name
@@ -38,8 +38,16 @@ public final class CategoriesCoordinator: CategoriesCoordinatorProtocol {
     }
 
     public func toProductScreen(product: Product) {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .systemBackground
+        let service = FirebaseCategoryService()
+        let addProductToFavoriteUseCase = AddProductToFavoriteUseCase(categoryService: service)
+        let addProductToCartUseCase = AddProductToCartUseCase(categoryService: service)
+        let viewModel = ProductViewModel(
+            product: product,
+            coordinator: self,
+            addProductToFavoriteUseCase: addProductToFavoriteUseCase,
+            addProductToCartUseCase: addProductToCartUseCase
+        )
+        let viewController = ProductViewController(viewModel: viewModel)
         viewController.title = product.name
         navigationController.pushViewController(viewController, animated: true)
     }

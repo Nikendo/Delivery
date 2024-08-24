@@ -20,16 +20,16 @@ public final class CategoryViewModel: CategoryViewModelProtocol {
     private var allProducts: ObservableValue<[Product]> = .init(value: [])
     private var cancellables = Set<AnyCancellable>()
     private let getProductsUseCase: any GetProductsUseCaseProtocol
-    private let updateProductUseCase: any UpdateProductUseCaseProtocol
+    private let addProductToFavoriteUseCase: any AddProductToFavoriteUseCaseProtocol
 
     public init(
         coordinator: CategoriesCoordinatorProtocol?,
         getProductsUseCase: GetProductsUseCaseProtocol,
-        updateProductUseCase: UpdateProductUseCaseProtocol
+        addProductToFavoriteUseCase: AddProductToFavoriteUseCaseProtocol
     ) {
         self.coordinator = coordinator
         self.getProductsUseCase = getProductsUseCase
-        self.updateProductUseCase = updateProductUseCase
+        self.addProductToFavoriteUseCase = addProductToFavoriteUseCase
         bind()
     }
 
@@ -71,12 +71,14 @@ public final class CategoryViewModel: CategoryViewModelProtocol {
                 description: favoriteProduct.description,
                 country: favoriteProduct.country,
                 price: favoriteProduct.price,
+                averageWeight: favoriteProduct.averageWeight,
+                weightUnit: favoriteProduct.weightUnit,
                 quantityType: favoriteProduct.quantityType,
                 kind: favoriteProduct.kind,
                 isFavorite: !favoriteProduct.isFavorite
             )
             do {
-                let _ = try await updateProductUseCase.execute(product: product)
+                let _ = try await addProductToFavoriteUseCase.execute(product: product)
             } catch {
                 self.error.value = error
             }

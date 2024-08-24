@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+public protocol ProductViewControllerProtocol: AnyObject {
+    var viewModel: ProductViewModelProtocol { get }
+}

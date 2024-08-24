@@ -36,7 +36,7 @@ final class CategoryViewModelTests: XCTestCase {
         viewModel = CategoryViewModel(
             coordinator: coordinator,
             getProductsUseCase: getProductsUseCase,
-            updateProductUseCase: addProductToFavoriteUseCase
+            addProductToFavoriteUseCase: addProductToFavoriteUseCase
         )
     }
 

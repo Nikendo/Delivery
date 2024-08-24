@@ -9,7 +9,10 @@ import Foundation
 
 
 public protocol ProductViewModelProtocol: AnyObject {
-    func fetchProduct()
+    var product: ObservableValue<Product> { get }
+    var error: ObservableValue<Error?> { get }
+    var coordinator: CategoriesCoordinatorProtocol? { get }
+
     func addToFavorite()
     func addToCart()
 }

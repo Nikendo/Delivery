@@ -2,13 +2,13 @@
 //  MockAddProductToFavoriteUseCase.swift
 //  Delivery
 //
-//  Created by Shmatov Nikita on 22.08.2024.
+//  Created by Shmatov Nikita on 24.08.2024.
 //
+
 
 import Delivery
 
-
-final class MockAddProductToFavoriteUseCase: UpdateProductUseCaseProtocol {
+final class MockAddProductToFavoriteUseCase: AddProductToFavoriteUseCaseProtocol {
     var errorToThrow: Error?
     var productWasAddedToFavorite: Bool = false
 
