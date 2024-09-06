@@ -8,7 +8,8 @@
 import XCTest
 import Delivery
 import Combine
-
+import DomainLayer
+import DataLayer
 
 final class CategoriesViewModelTests: XCTestCase {
     
@@ -39,10 +40,10 @@ final class CategoriesViewModelTests: XCTestCase {
     func testGetCategoriesSuccess() {
         // Given
         let categories = [
-            Category(id: UUID().uuidString, name: "Vegetables", count: 40),
-            Category(id: UUID().uuidString, name: "Fruits", count: 32),
-            Category(id: UUID().uuidString, name: "Bread", count: 22),
-            Category(id: UUID().uuidString, name: "Sweet", count: 14)
+            ProductCategory(id: UUID().uuidString, name: "Vegetables", count: 40),
+            ProductCategory(id: UUID().uuidString, name: "Fruits", count: 32),
+            ProductCategory(id: UUID().uuidString, name: "Bread", count: 22),
+            ProductCategory(id: UUID().uuidString, name: "Sweet", count: 14)
         ]
         let expectation = XCTestExpectation(description: "Expectation - Categories fetched success")
         getCategoriesUseCase.categories = categories
@@ -64,10 +65,10 @@ final class CategoriesViewModelTests: XCTestCase {
     func testGetCategoriesFailed() {
         // Given
         let categories = [
-            Category(id: UUID().uuidString, name: "Vegetables", count: 40),
-            Category(id: UUID().uuidString, name: "Fruits", count: 32),
-            Category(id: UUID().uuidString, name: "Bread", count: 22),
-            Category(id: UUID().uuidString, name: "Sweet", count: 14)
+            ProductCategory(id: UUID().uuidString, name: "Vegetables", count: 40),
+            ProductCategory(id: UUID().uuidString, name: "Fruits", count: 32),
+            ProductCategory(id: UUID().uuidString, name: "Bread", count: 22),
+            ProductCategory(id: UUID().uuidString, name: "Sweet", count: 14)
         ]
         let expectation = XCTestExpectation(description: "Expectation - Categories fetched failed")
         let testError = NSError(domain: "TestError", code: 1)
@@ -89,11 +90,11 @@ final class CategoriesViewModelTests: XCTestCase {
     func testGetFilteredCategoriesSuccess() {
         // Given
         let categories = [
-            Category(id: UUID().uuidString, name: "Vegetables", count: 40),
-            Category(id: UUID().uuidString, name: "Vegetarian", count: 74),
-            Category(id: UUID().uuidString, name: "Fruits", count: 32),
-            Category(id: UUID().uuidString, name: "Bread", count: 22),
-            Category(id: UUID().uuidString, name: "Sweet", count: 14)
+            ProductCategory(id: UUID().uuidString, name: "Vegetables", count: 40),
+            ProductCategory(id: UUID().uuidString, name: "Vegetarian", count: 74),
+            ProductCategory(id: UUID().uuidString, name: "Fruits", count: 32),
+            ProductCategory(id: UUID().uuidString, name: "Bread", count: 22),
+            ProductCategory(id: UUID().uuidString, name: "Sweet", count: 14)
         ]
         let expectedFilteredCategories = [
             categories[0],
@@ -122,10 +123,10 @@ final class CategoriesViewModelTests: XCTestCase {
     func testSelectCategorySuccess() {
         // Given
         let categories = [
-            Category(id: UUID().uuidString, name: "Vegetables", count: 40),
-            Category(id: UUID().uuidString, name: "Fruits", count: 32),
-            Category(id: UUID().uuidString, name: "Bread", count: 22),
-            Category(id: UUID().uuidString, name: "Sweet", count: 14)
+            ProductCategory(id: UUID().uuidString, name: "Vegetables", count: 40),
+            ProductCategory(id: UUID().uuidString, name: "Fruits", count: 32),
+            ProductCategory(id: UUID().uuidString, name: "Bread", count: 22),
+            ProductCategory(id: UUID().uuidString, name: "Sweet", count: 14)
         ]
         let expectedCategory = categories[1]
 
@@ -153,10 +154,10 @@ final class CategoriesViewModelTests: XCTestCase {
     func testSelectCategoryFailed() {
         // Given
         let categories = [
-            Category(id: UUID().uuidString, name: "Vegetables", count: 40),
-            Category(id: UUID().uuidString, name: "Fruits", count: 32),
-            Category(id: UUID().uuidString, name: "Bread", count: 22),
-            Category(id: UUID().uuidString, name: "Sweet", count: 14)
+            ProductCategory(id: UUID().uuidString, name: "Vegetables", count: 40),
+            ProductCategory(id: UUID().uuidString, name: "Fruits", count: 32),
+            ProductCategory(id: UUID().uuidString, name: "Bread", count: 22),
+            ProductCategory(id: UUID().uuidString, name: "Sweet", count: 14)
         ]
         
         let idsSet = Set(categories.map(\.id))

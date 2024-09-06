@@ -7,6 +7,7 @@
 
 import XCTest
 import Delivery
+import DomainLayer
 
 
 final class CategoriesTests: XCTestCase {
@@ -18,7 +19,7 @@ final class CategoriesTests: XCTestCase {
         let count = 40
 
         // When
-        let category = Category(id: id, name: name, count: count)
+        let category = ProductCategory(id: id, name: name, count: count)
 
         // Then
         XCTAssertEqual(id, category.id, "Category's id property with value: \(category.id) is not equal to given id property with value: \(id)")
