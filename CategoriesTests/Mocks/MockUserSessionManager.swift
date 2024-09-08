@@ -6,6 +6,8 @@
 //
 
 import Delivery
+import DomainLayer
+import DataLayer
 
 
 final class MockUserSessionManager: UserSessionManagerProtocol {

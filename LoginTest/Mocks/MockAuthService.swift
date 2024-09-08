@@ -8,7 +8,7 @@
 import Delivery
 
 
-final class MockAuthService: AuthServiceProtocol {
+final class MockAuthService: AuthRepository {
     private let email: String
     private let password: String
 

@@ -11,7 +11,7 @@ import Delivery
 final class LoginTests: XCTestCase {
 
     private var userSessionManager: UserSessionManagerProtocol!
-    private var authService: AuthServiceProtocol!
+    private var authRepository: AuthRepository!
     private var loginUseCase: LoginUseCaseProtocol!
     private let correctEmail = "johndoe@gmail.com"
     private let correctPassword = "1234qwer"
@@ -19,8 +19,8 @@ final class LoginTests: XCTestCase {
     override func setUp() {
         super.setUp()
         userSessionManager = MockUserSessionManager()
-        authService = MockAuthService(email: correctEmail, password: correctPassword)
-        loginUseCase = LoginUseCase(authService: authService, userSessionManager: userSessionManager)
+        authRepository = MockAuthService(email: correctEmail, password: correctPassword)
+        loginUseCase = LoginUseCase(authRepository: authRepository, userSessionManager: userSessionManager)
     }
 
     func testLoginUseCaseSuccess() async throws {
